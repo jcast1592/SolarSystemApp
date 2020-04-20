@@ -7,5 +7,5 @@ data class Planet(
     var orbitalPeriod: Int?,
     var satellites: Int?,
     var radius: Float?,
-    var imageUrl: String
+    var imageUrl: String?
 )
