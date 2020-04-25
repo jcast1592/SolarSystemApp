@@ -10,6 +10,12 @@ import kotlinx.android.synthetic.main.item_planet.view.*
 
 class PlanetListAdapter(var planets: ArrayList<Planet>): RecyclerView.Adapter<PlanetListAdapter.PlanetViewHolder>() {
 
+    fun updatePlanetList(newPlanetsList: List<Planet>) {
+        planets.clear()
+        planets.addAll(newPlanetsList)
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlanetViewHolder = PlanetViewHolder(
         LayoutInflater.from(parent.context)
             .inflate(R.layout.item_planet, parent, false)
