@@ -21,6 +21,11 @@
         <action
             android:id="@+id/action_planetDetailFragment_to_planetsListFragment"
             app:destination="@id/planetsListFragment" />
+        <argument
+            android:name="planetId"
+            android:defaultValue="0"
+            app:argType="integer"
+            />
     </fragment>
 
 </navigation>
