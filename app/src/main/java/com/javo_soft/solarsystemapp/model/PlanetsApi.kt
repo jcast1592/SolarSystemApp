@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 interface PlanetsApi {
 
-    @GET("planetsApi/blob/master/dataset/planets_dataset.json")
+    @GET("jcast1592/planetsApi/master/dataset/planets_dataset.json")
     fun getPlanets(): Single<List<Planet>>
 
 }

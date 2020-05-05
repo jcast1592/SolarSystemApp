@@ -38,11 +38,19 @@ class PlanetsListFragment : Fragment() {
             adapter = planetsListAdapter
         }
 
+        refresh_layout.setOnRefreshListener {
+            planets_list.visibility = View.GONE
+            error_message.visibility = View.GONE
+            progress_bar.visibility = View.VISIBLE
+            viewModel.refresh()
+            refresh_layout.isRefreshing = false
+        }
+
         observeViewModel()
 
     }
 
-    fun observeViewModel() {
+    private fun observeViewModel() {
         viewModel.planets.observe(viewLifecycleOwner, Observer { planets ->
             planets?.let {
                 planets_list.visibility =View.VISIBLE
