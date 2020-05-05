@@ -38,11 +38,19 @@ class PlanetsListFragment : Fragment() {
             adapter = planetsListAdapter
         }
 
+        refresh_layout.setOnRefreshListener {
+            planets_list.visibility = View.GONE
+            error_message.visibility = View.GONE
+            progress_bar.visibility = View.VISIBLE
+            viewModel.refresh()
+            refresh_layout.isRefreshing = false
+        }
+
         observeViewModel()
 
     }
 
-    fun observeViewModel() {
+    private fun observeViewModel() {
         viewModel.planets.observe(viewLifecycleOwner, Observer { planets ->
             planets?.let {
                 planets_list.visibility =View.VISIBLE
@@ -52,20 +60,25 @@ class PlanetsListFragment : Fragment() {
 
         viewModel.errorLoading.observe(viewLifecycleOwner, Observer { isError ->
             isError?.let {
-                error_message.visibility = View.VISIBLE
+                error_message.visibility = if (it) {
+                    View.VISIBLE
+                } else {
+                    View.GONE
+                }
             }
         })
 
         viewModel.loading.observe(viewLifecycleOwner, Observer { isLoading ->
             isLoading?.let {
+                progress_bar.visibility = if(it) {
+                    View.VISIBLE
+                } else {
+                    View.GONE
+                }
+
                 if (it) {
-                    progress_bar.visibility = View.VISIBLE
                     error_message.visibility = View.GONE
                     planets_list.visibility = View.GONE
-                } else {
-                    progress_bar.visibility = View.GONE
-                    error_message.visibility = View.VISIBLE
-                    planets_list.visibility = View.VISIBLE
                 }
             }
         })

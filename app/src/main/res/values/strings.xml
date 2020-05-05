@@ -3,4 +3,7 @@
 
     <string name="planet_s_image">Planet\'s image</string>
     <string name="planet_description_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</string>
+    <string name="error_message">There is an error, try later</string>
+    <string name="type_of_planet_text">Type of planet: %1s</string>
+    <string name="orbital_period_in_days">Orbital period in days: %1s</string>
 </resources>

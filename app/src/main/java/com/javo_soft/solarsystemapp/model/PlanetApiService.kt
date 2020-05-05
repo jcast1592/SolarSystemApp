@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class PlanetApiService {
 
     companion object {
-        private const val BASE_URL = "planetsApi/blob/master/dataset/planets_dataset.json"
+        private const val BASE_URL = "https://raw.githubusercontent.com"
     }
 
     private val api = Retrofit.Builder()
