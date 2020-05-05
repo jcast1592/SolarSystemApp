@@ -42,8 +42,8 @@ class PlanetsListViewModel: ViewModel() {
                 }
 
                 override fun onError(error: Throwable) {
-                    errorLoading.value = true
                     loading.value = false
+                    errorLoading.value = true
                     error.printStackTrace()
                 }
 

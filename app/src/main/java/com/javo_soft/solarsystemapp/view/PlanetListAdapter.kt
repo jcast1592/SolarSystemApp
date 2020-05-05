@@ -32,8 +32,8 @@ class PlanetListAdapter(var planets: ArrayList<Planet>): RecyclerView.Adapter<Pl
         fun bind(planet: Planet) {
             itemView.apply {
                 planet_name.text = planet.name
-                planet_type.text = planet.type
-                planet_orbital_period.text = planet.orbitalPeriod?.toString()
+                planet_type.text = resources.getString(R.string.type_of_planet_text, planet.type)
+                planet_orbital_period.text = resources.getString(R.string.orbital_period_in_days, planet.orbitalPeriod?.toString())
                 setOnClickListener {
                     Navigation.findNavController(it).navigate(PlanetsListFragmentDirections.actionPlanetsListFragmentToPlanetDetailFragment())
                 }
