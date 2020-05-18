@@ -7,6 +7,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.javo_soft.solarsystemapp.R
 import com.javo_soft.solarsystemapp.model.Planet
+import com.javo_soft.solarsystemapp.util.loadImage
 import kotlinx.android.synthetic.main.item_planet.view.*
 
 class PlanetListAdapter(var planets: ArrayList<Planet>): RecyclerView.Adapter<PlanetListAdapter.PlanetViewHolder>() {
@@ -34,6 +35,7 @@ class PlanetListAdapter(var planets: ArrayList<Planet>): RecyclerView.Adapter<Pl
                 planet_name.text = planet.name
                 planet_type.text = resources.getString(R.string.type_of_planet_text, planet.type)
                 planet_orbital_period.text = resources.getString(R.string.orbital_period_in_days, planet.orbitalPeriod?.toString())
+                planet_image.loadImage(planet.imageUrl)
                 setOnClickListener {
                     Navigation.findNavController(it).navigate(PlanetsListFragmentDirections.actionPlanetsListFragmentToPlanetDetailFragment())
                 }
